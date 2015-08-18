@@ -15,7 +15,7 @@ For test this script use the example called "net_HMRA_test.txt".
 
 Input format as txt separated by \tab:
 
-        name of reacion     reaction formula    ec number   gene    compartment    subsystem.
+        name of reacion     rxn formula    ec number   gene    compartment    subsystem.
 
 For reconstuction generated from Recon:
 
@@ -23,7 +23,7 @@ For test this script use the example called "net_recon_test.txt".
 
 Input format as txt separated by \tab:
 
-        name of reacion     reaction formula    ec number   gene    compartment(opt but with a - or 0 value)  subsystem.
+        name of reacion     rxn formula    ec number   gene    compartment(opt but with a - or 0 value)  subs.
 
 
 I used the scripts as follows:
@@ -34,5 +34,3 @@ I used the scripts as follows:
         - metab_metab_network.py
         
         - enzyme_enzyme_network.py
-        
-        
