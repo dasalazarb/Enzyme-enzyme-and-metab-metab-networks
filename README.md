@@ -36,4 +36,6 @@ I used the scripts as follows:
         
         - enzyme_enzyme_network.py
 
+Net_Recon.py conatins all the scripts but settled for Recon format.
+
 End
