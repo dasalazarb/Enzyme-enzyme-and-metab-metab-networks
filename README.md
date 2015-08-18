@@ -24,3 +24,11 @@ For test this script use the example called "net_recon_test.txt".
 Input format as txt separated by \tab:
 
         name of reacion     reaction formula    ec number   gene    compartment(optional but with a - or 0 value)  subsystem.
+
+
+I used the scripts as follows:
+        - Net_HMRA.py
+        - Output_list_metabs.py (optional)
+        - metab_metab_network.py
+        - enzyme_enzyme_network.py
+        
