@@ -1,41 +1,45 @@
 # Enzyme-enzyme-and-metab-metab-networks
-This code is useful for obtain enzyme-enzyme and metabolite-metabolite network for HMR and Recon.
-Is useful to print the fluxes obtained by FBA.
+This repository builds enzyme-enzyme and metabolite-metabolite networks for HMR
+and Recon reconstructions.  Cytoscape is recommended for visualization.
 
-I use python language to write this scripts because I used other language but it was very delayed.
+## Quick start (one-step pipeline)
 
-You can use different atributtes of the nodes and edges. To visualize the network use cytoscape (recommended).
+Use `network_pipeline.py` to run the full workflow end-to-end with Python 3:
 
-Enzyme-enzyme network: enzyme that produce a metabolite (node) - metabolite produce (edge) - enzyme that use this metabolite (node).
-Metab-metab network: metabolite as reactive n reaction x (node) - enzyme of reaction x (edge) - metabolite as product in reaction x.
+```bash
+python network_pipeline.py --format hmra --input net_HMRA_test.txt --output-dir outputs
+```
 
-For reconstuction generated from HMRA:
+or for Recon files:
 
-For test this script use the example called "net_HMRA_test.txt".
+```bash
+python network_pipeline.py --format recon --input net_recon_test.txt --output-dir outputs
+```
 
-Input format as txt separated by \tab:
+Outputs are written to the chosen directory:
 
-        name of rxn     rxn formula    ec number   gene    compartment    subsystem.
+* `metabolite_counts.txt` – metabolite occurrence counts.
+* `lista_metab_rxn_metab.txt` – metabolite-metabolite edges mediated by reactions.
+* `react_metab_product_network.txt` – enzyme-enzyme edges via shared metabolites.
 
-For reconstuction generated from Recon:
+## Input format (tab-delimited)
 
-For test this script use the example called "net_recon_test.txt".
+HMRA files (`--format hmra`):
 
-Input format as txt separated by \tab:
+```
+name of rxn    rxn formula    ec number   gene    compartment    subsystem    flux(optional)
+```
 
-        name of rxn     rxn formula    ec number   gene    compartment(opt but with a '-' or 0 value)  subs.
+Recon files (`--format recon`):
 
+```
+name of rxn    rxn formula    ec number   gene    compartment(optional)    subsystem(optional)
+```
 
-I used the scripts as follows:
+Example HMRA input is provided in `net_HMRA_test.txt`.
 
-        - Net_HMRA.py
-        
-        - Output_list_metabs.py (optional)
-        
-        - metab_metab_network.py
-        
-        - enzyme_enzyme_network.py
+## Legacy scripts
 
-Net_Recon.py conatins all the scripts but settled for Recon format.
-
-End
+The original multi-step scripts (`Net_HMRA.py`, `Output_list_metabs.py`,
+`metab_metab_network.py`, `enzyme_enzyme_network.py`, `Net_Recon.py`) are kept
+for reference but the consolidated pipeline is recommended for new runs.
